@@ -81,45 +81,46 @@ def parse_args(args):
     pid_gains = PIDGains()
     sim_params = SimulationParameters()
 
+    print(args)
+
     if len(args) < 2:
         return pid_gains, sim_params
 
     if len(args) == 2:
-        pid_gains.kp = int(args[1][3:])
+        pid_gains.kp = float(args[1][3:])
     elif len(args) == 3:
-        pid_gains.kp = int(args[1][3:])
-        pid_gains.ki = int(args[2][3:])
+        pid_gains.kp = float(args[1][3:])
+        pid_gains.ki = float(args[2][3:])
     elif len(args) == 4:
-        pid_gains.kp = int(args[1][3:])
-        pid_gains.ki = int(args[2][3:])
-        pid_gains.kd = int(args[3][3:])
+        pid_gains.kp = float(args[1][3:])
+        pid_gains.ki = float(args[2][3:])
+        pid_gains.kd = float(args[3][3:])
     elif len(args) == 5:
-        pid_gains.kp = int(args[1][3:])
-        pid_gains.ki = int(args[2][3:])
-        pid_gains.kd = int(args[3][3:])
+        pid_gains.kp = float(args[1][3:])
+        pid_gains.ki = float(args[2][3:])
+        pid_gains.kd = float(args[3][3:])
         sim_params.sim_time = float(args[4][9:])
     elif len(args) == 6:
-        pid_gains.kp = int(args[1][3:])
-        pid_gains.ki = int(args[2][3:])
-        pid_gains.kd = int(args[3][3:])
+        pid_gains.kp = float(args[1][3:])
+        pid_gains.ki = float(args[2][3:])
+        pid_gains.kd = float(args[3][3:])
         sim_params.sim_time = float(args[4][9:])
-        sim_params.disturbance_flag = bool(args[5][16:])
-        sim_params.state_estimation_flag = bool(args[6][21:])
+        sim_params.disturbance_flag = True if args[5][17:] == 'True' else False
     elif len(args) == 7:
-        pid_gains.kp = int(args[1][3:])
-        pid_gains.ki = int(args[2][3:])
-        pid_gains.kd = int(args[3][3:])
+        pid_gains.kp = float(args[1][3:])
+        pid_gains.ki = float(args[2][3:])
+        pid_gains.kd = float(args[3][3:])
         sim_params.sim_time = float(args[4][9:])
-        sim_params.disturbance_flag = bool(args[5][16:])
-        sim_params.state_estimation_flag = bool(args[6][21:])
+        sim_params.disturbance_flag = True if args[5][17:] == 'True' else False
+        sim_params.state_estimation_flag = True if args[6][22:] == 'True' else False
     elif len(args) == 8:
-        pid_gains.kp = int(args[1][3:])
-        pid_gains.ki = int(args[2][3:])
-        pid_gains.kd = int(args[3][3:])
+        pid_gains.kp = float(args[1][3:])
+        pid_gains.ki = float(args[2][3:])
+        pid_gains.kd = float(args[3][3:])
         sim_params.sim_time = float(args[4][9:])
-        sim_params.disturbance_flag = bool(args[5][16:])
-        sim_params.state_estimation_flag = bool(args[6][21:])
-        sim_params.show_animation_flag = bool(args[7][18:])
+        sim_params.disturbance_flag = True if args[5][17:] == 'True' else False
+        sim_params.state_estimation_flag = True if args[6][22:] == 'True' else False
+        sim_params.show_animation_flag = True if args[7][20:] == 'True' else False
     
     return pid_gains, sim_params
 

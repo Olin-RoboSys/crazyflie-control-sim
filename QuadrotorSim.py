@@ -149,7 +149,7 @@ class Quadrotor1D():
         steadystate_error = S["SteadyStateValue"] - self.set_point_z
 
 
-        textstr = 'Control Performance for [Kp, Ki, Kd] = [ %d , %d , %d ]\n\
+        textstr = 'Control Performance for [Kp, Ki, Kd] = [ %.1f , %.1f , %.1f ]\n\
         ---------------------------------------------------------------------\n\
         Rise time             = %.3f [s]\n\
         Settling Time         = %.3f [s]\n\
@@ -162,3 +162,4 @@ class Quadrotor1D():
         plt.subplots_adjust(bottom=0.25)
 
         plt.show(block=True)
+
